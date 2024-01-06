@@ -22,9 +22,9 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     Raises:
         ValueError: if yaml file is empty
         e: empty file
-    
+
     Returns:
-        ConfigBoc: ConfigBox type
+        ConfigBox: ConfigBox type
     """
     try:
         with open(path_to_yaml) as yaml_file:
@@ -53,17 +53,20 @@ def create_directories(path_to_directories: list, verbose=True):
 
 
 @ensure_annotations
-def save_json(path: Path, data:dict):
+def save_json(path: Path, data: dict):
     """save json data
-    
+
     Args:
-        path(Path): path to json file
-        data (dict): data to be  saved in json file
-    """    
+        path (Path): path to json file
+        data (dict): data to be saved in json file
+    """
     with open(path, "w") as f:
         json.dump(data, f, indent=4)
 
-    logger.info(f"json file saved at: (path)")
+    logger.info(f"json file saved at: {path}")
+
+
+
 
 @ensure_annotations
 def load_json(path: Path) -> ConfigBox:
